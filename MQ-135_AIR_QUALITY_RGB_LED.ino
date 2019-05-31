@@ -1,6 +1,7 @@
 int redPin = D3;
 int greenPin = D1;
-int airquality = 0;
+int airquality = A0;
+int dio_buzzer = D7;
 void setup()
 {
   Serial.begin(9600);
@@ -22,11 +23,14 @@ void loop()
 if(sensorValue <= 90){
     digitalWrite(redPin, HIGH);
     digitalWrite(greenPin, LOW);
+    
 
     }
     else{
     digitalWrite(redPin, LOW);
     digitalWrite(greenPin, HIGH);
+    tone(dio_buzzer, 500, 50);
+    delay(500);
 
     }
 
